@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import UserList from "./components/Usuarios/UserList";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
+import UserList from "./Components/Usuarios/UserList";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
@@ -15,13 +15,14 @@ export default function Users() {
   };
 
   useEffect(() => {
-    console.log("Se ejecuta el useEffect");
     getUsers();
   }, []);
 
   return (
     <View style={styles.container}>
+      <ScrollView>
       <UserList items={users} />
+      </ScrollView>
       <StatusBar style="auto" />
     </View>
   );
@@ -29,7 +30,7 @@ export default function Users() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop:1275,
+    paddingTop:20,
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",

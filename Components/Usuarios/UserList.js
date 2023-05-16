@@ -6,6 +6,7 @@ const UserList = (props) => {
     <View>
       {props.items.map((user) => (
         <User
+          key={user["Object Id"]}
           image={user.Picture}
           name={user["Display name"]}
           title={user.Title}
